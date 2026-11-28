@@ -1,0 +1,10 @@
+#!/bin/bash
+clients=("transmission-gtk" "transmission-daemon" "deluge" "qbittorrent" "ktorrent" "amule" "frostwire" "vuze")
+
+for pkg in "${clients[@]}"; do
+    if dpkg -l "$pkg" 2>/dev/null | grep -q "^ii"; then
+        echo "$pkg is installed"
+    else
+        echo "$pkg is not installed"
+    fi
+done

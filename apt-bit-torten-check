@@ -1,0 +1,10 @@
+#!/bin/bash
+clients=("transmission-gtk" "transmission-daemon" "deluge" "qbittorrent" "ktorrent" "amule" "frostwire" "vuze")
+
+for pkg in "${clients[@]}"; do
+    if apt list --installed 2>/dev/null | grep -q "^$pkg/"; then
+        echo "$pkg is installed"
+    else
+        echo "$pkg is not installed"
+    fi
+done
